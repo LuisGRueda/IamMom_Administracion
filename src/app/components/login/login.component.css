@@ -1,0 +1,13 @@
+header{
+    display: none;
+}
+#logo
+{
+    width: 40%;
+}
+#logo img{
+    width: 100%;
+}
+.error {
+    border: 1px solid red;
+  }

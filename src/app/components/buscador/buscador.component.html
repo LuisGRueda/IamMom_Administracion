@@ -1,0 +1,58 @@
+<div class="container animated fadeIn fast">
+    <div class="album py-5 bg-light" >
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
+            <div class="col" *ngFor="let clase of clases; " >
+              <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://cdn.pixabay.com/photo/2021/03/19/12/37/man-6107457_1280.png" role="img" focusable="false">
+                <div class="card-body">
+                  <p class="card-text">{{clase.nombre}}</p>
+                  <p class="card-text">{{clase.descripcion}}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <button (click)="navegarAPagina(clase.nombre,'clase')" type="button" class="btn btn-outline-primary">Ver mas...</button>
+                    <small class="text-muted">{{clase.fechahora}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col" *ngFor="let item of matronas; " >
+              <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://cdn.pixabay.com/photo/2014/03/25/16/54/user-297566_1280.png" role="img" focusable="false">
+                <div class="card-body">
+                  <p class="card-text">{{item.nombre}}  {{item.apellido}}</p>
+                  <p class="card-text">{{item.correo}}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <button (click)="navegarAPagina(item.ci, 'matron')" type="button" class="btn btn-outline-primary">Ver mas...</button>
+                    <small class="text-muted">{{item.ci}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+        </div>
+        <div class="container">
+          
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
+           
+           </div>
+        </div>
+        <div class="container">
+         
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
+            <div class="col" *ngFor="let item of embarazadas; " >
+              <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://th.bing.com/th/id/R.4e089c60c3bced3467d123aa6e675715?rik=sOcYezg130jTmw&pid=ImgRaw&r=0" role="img" focusable="false">
+                <div class="card-body">
+                  <p class="card-text">{{item.nombre}}  {{item.apellidos}}</p>
+                  <p class="card-text">{{item.direccion}}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <button (click)="navegarAPagina(item.ci,'embarazada')" type="button" class="btn btn-outline-primary">Ver mas...</button>
+                    <small class="text-muted"></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+        </div>
+      </div>  
+</div>

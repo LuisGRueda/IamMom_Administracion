@@ -1,0 +1,19 @@
+<h1 class="animated fadeIn">{{ centro.nombre }} <small></small></h1>
+<hr>
+
+<div class="row animated fadeIn fast">
+
+  <div class="col-md-4">
+
+    <img src="https://th.bing.com/th/id/OIP.wK3qFzVMu3oAIHy35lsP2QAAAA?pid=ImgDet&rs=1" class="img-fluid" [alt]="centro.nombre">
+    <br><br>
+    <a [routerLink]="['/centro']" class="btn btn-outline-danger btn-block">Regresar</a>
+
+  </div>
+
+  <div class="col-md-8">
+    <h3>{{ centro.nombre }}</h3>
+    <hr>
+    <p>
+      {{ centro.direccion }}
+    </p>

@@ -1,0 +1,135 @@
+
+<div class="contenedor">
+    <a [routerLink]="['/embarazada']" class="btn btn-outline-danger btn-block">Regresar</a>
+    <div class="container">
+      
+    </div>
+    <div class="row animated fadeIn faster">
+        <div class="col">
+     
+          <form (ngSubmit)="guardar( f )"
+                #f="ngForm">
+            <div class="container d-flex">
+              <div class="form-group margen">
+                <label>ID</label>
+                <input type="text"
+                       class="form-control"
+                       [(ngModel)]="hijo.id"
+                       name="id"
+                       disabled="disabled">
+                <small class="form-text text-muted">Este campo es autogenerado</small>
+              </div>
+              <div class="form-group margen">
+                <label>CodigoNacido</label>
+                <input type="text"
+                       class="form-control"
+                       [(ngModel)]="hijo.codigoNacido"
+                       name="codigoNacido">
+              </div>
+            </div>
+            <div class="container d-flex"> 
+              <div class="form-group margen">
+                <label>Nombre</label>
+                <input type="text"
+                     class="form-control"
+                     [(ngModel)]="hijo.nombre"
+                     name="nombre"
+                     required>
+            </div>
+            <div class="form-group margen">
+                <label>apellido</label>
+                <input type="text"
+                     class="form-control"
+                     [(ngModel)]="hijo.apellidos"
+                     name="apellidos"
+                     required>
+            </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Nombre padre</label>
+                <input type="text"
+                     class="form-control"
+                     [(ngModel)]="hijo.nombre_padre"
+                     name="nombre_padre"
+                     required>
+            </div>
+            <div class="form-group">
+              <label>Nombre Madre</label>
+              <input type="text"
+                   class="form-control"
+                   [(ngModel)]="hijo.nombre_madre"
+                   name="nombre_madre"
+                   required>
+          </div>
+          <div class="container d-flex">
+            <div class="form-group margen">
+              <label>Matrona</label>
+              <select class="form-control"
+                      [(ngModel)]="hijo.nombre_matrona"
+                      name="nombre_matrona"
+                      required
+                      aria-label="Default select example">
+                  <option *ngFor="let item of matronas" [ngValue]="item.nombre+' '+item.apellidos">{{item.nombre}} {{item.apellidos}}</option>
+              </select>
+          </div>
+              <div class="form-group margen">
+                  <label>Fecha Nacido</label>
+                  <input type="date"
+                       class="form-control"
+                       [(ngModel)]="hijo.fechahora_nacido"
+                       name="fechahora_nacido"
+                       required>
+              </div>
+          </div>
+         
+            <div class="form-group">
+                <label>Anomalias</label>
+                <input type="text"
+                     class="form-control"
+                     [(ngModel)]="hijo.anomalias"
+                     name="anomalias"
+                     required>
+            </div>
+            <div class="form-group">
+                <label>tipo sangre</label>
+                <input type="text"
+                     class="form-control"
+                     [(ngModel)]="hijo.tipo_sangre"
+                     name="tipo_sangre"
+                     required>
+            </div>
+            
+            <div class="form-group">
+              <label>Notas</label>
+              <textarea class="form-control"
+                        [(ngModel)]="hijo.notas"
+                        name="notas"
+                        required></textarea>
+            </div>
+            <div class="form-group margen">
+              <label>Estado</label>
+                <select  class="form-control"
+                placeholder="Estado"
+                [(ngModel)]="hijo.estado"
+                name="estado"
+                required  aria-label="Default select example">
+                <option selected value="Activo">Activo</option>
+                  <option  value="Inactivo">Inactivo</option>
+                </select>
+              </div>
+    
+            <div class="form-group text-center">
+                <button type="submit"
+                        class="btn btn-primary w-25">
+                  <i class="fa fa-save"></i>
+                  Guardar
+                </button>
+              </div>
+         </form>
+    </div>
+    </div>
+    
+    
+    
+</div> 

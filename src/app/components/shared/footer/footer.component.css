@@ -1,0 +1,50 @@
+
+
+#footer{
+    height: 175px;
+    background: #000;
+    width: 100%;
+	display: none;
+}
+.contenedorfooter{
+    width: auto;
+    height: 100%;
+    padding-left: 10%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.logofooter{
+    width: 15%;
+}
+.logofooter img{
+    width: 100%;
+}
+.copy{
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    color: white;
+    width: 60%;
+    overflow: hidden;
+    font-size: 12px;
+}
+.social{
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    color: white;
+    width: 15%;
+}
+.social .fab{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 18px;
+    color: #000;
+    background: white;
+    margin-right: 15px;
+    cursor: pointer;
+}

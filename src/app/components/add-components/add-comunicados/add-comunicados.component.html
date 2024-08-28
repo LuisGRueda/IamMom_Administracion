@@ -1,0 +1,110 @@
+<div class="contenedor">
+    <a [routerLink]="['/comunicados']" class="btn btn-outline-danger btn-block">Regresar</a>
+  
+    <div class="row ">
+        <div class="col">
+     
+          <form (ngSubmit)="guardar( f )"
+                #f="ngForm">
+     
+            <div class="form-group">
+              <label>ID</label>
+              <input type="text"
+                     class="form-control"
+                     placeholder="ID"
+                     name="id"
+                     [(ngModel)]="comunicado.id"
+                     disabled="disabled">
+              <small class="form-text text-muted">Este campo es autogenerado</small>
+            </div>
+     
+            <div class="form-group">
+                <label>titulo</label>
+                <input type="text"
+                     class="form-control"
+                     name="titulo"
+                     [(ngModel)]="comunicado.titulo"
+                     required>
+            </div>
+    
+            <div class="form-group">
+                <label>contenido</label>
+                <input type="text"
+                     class="form-control"
+                     value="Code.contenido"
+                     [(ngModel)]="comunicado.contenido"
+                     name="direccion"
+                     required>
+            </div>
+    
+            <div class="form-group">
+                <label>imagen</label>
+                <input type="text"
+                     class="form-control"
+                     placeholder="imagen"
+                     [(ngModel)]="comunicado.imagen"
+                     name="telefono"
+                     required>
+            </div>
+            <div class="form-group">
+                <label>fecha</label>
+                <input type="date"
+                     class="form-control"
+                     placeholder="fecha"
+                     [(ngModel)]="comunicado.fecha"
+                     name="telefono"
+                     required>
+            </div>
+            <div class="container d-flex ">
+              <div class="form-group margen">
+                <label>Categoria</label>
+                <select  class="form-control"
+                placeholder="Tipo de Centro"
+                [(ngModel)]="comunicado.categoria"
+                name="tipo"
+                required  aria-label="Default select example">
+                  <option value="Aviso">Aviso</option>
+                  <option value="Notificacion">Notificacion</option>
+                  <option value="Circular">Circular</option>
+                  <option value="Mensajes">Mensajes</option>
+                </select>
+            </div> 
+            <div class="form-group">
+              <label>autor</label>
+              <input type="text"
+              value="loguser"
+                   class="form-control"
+                   placeholder="Autor"
+                   [(ngModel)]="comunicado.autor"
+                   name="autor"
+                   disabled="disabled"
+                   required>
+          </div>
+            <div class="form-group margen">
+              <label>Estado</label>
+                <select  class="form-control"
+                placeholder="Estado"
+                [(ngModel)]="comunicado.estado"
+                name="estado"
+                required  aria-label="Default select example">
+                <option selected value="Activo">Activo</option>
+                  <option  value="Inactivo">Inactivo</option>
+                </select>
+              </div>
+            </div>
+  
+    
+            <div class="form-group text-center boton">
+                <button type="submit"
+                        class="btn btn-primary w-25">
+                  <i class="fa fa-save"></i>
+                  Guardar
+                </button>
+              </div>
+            </form>
+            </div>
+          </div>
+  </div>
+  
+  
+  

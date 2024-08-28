@@ -1,0 +1,149 @@
+<div class="contenedor">
+     <div class="container">
+          <a [routerLink]="['/matrona']" class="btn btn-outline-danger btn-block">Regresar</a>
+     </div>
+     <div class="row animated fadeIn faster">
+         <div class="col">
+      
+           <form (ngSubmit)="guardar( f )"
+           #f="ngForm">
+     
+             <div class="form-group">
+               <label>ID</label>
+               <input type="text"
+                      class="form-control"
+                      placeholder="ID"
+                      [ngModel]="matrona.id"
+                      name="id"
+                      disabled="disabled">
+               <small class="form-text text-muted">Este campo es autogenerado</small>
+             </div>
+             <div class="form-group">
+               <label>Nombre</label>
+               <input type="text"
+                    class="form-control"
+                    placeholder="Nombre"
+                    [(ngModel)]="matrona.nombre"
+                    name="nombre"
+                    required
+                    minlength="3">
+               <small *ngIf="f.submitted && f.controls.nombre.invalid" class="form-text text-danger">El nombre debe tener al menos 3 caracteres.</small>
+           </div>
+           <div class="form-group">
+               <label>Apellido</label>
+               <input type="text"
+                    class="form-control"
+                    placeholder="Apellido"
+                    [(ngModel)]="matrona.apellidos"
+                    name="apellido"
+                    required
+                    minlength="4">
+               <small *ngIf="f.submitted && f.controls.apellido.invalid" class="form-text text-danger">El apellido debe tener al menos 4 caracteres.</small>
+           </div>
+           <div class="form-group">
+               <label>Ci</label>
+               <input type="number"
+                    class="form-control"
+                    placeholder="Ci"
+                    [(ngModel)]="matrona.ci"
+                    name="ci"
+                    required
+                    minlength="6">
+               <small *ngIf="f.submitted && f.controls.ci.invalid" class="form-text text-danger">La cédula de identidad debe tener al menos 6 dígitos.</small>
+           </div>
+           <div class="container d-flex">
+               <div class="form-group margen">
+                    <label>Usuario</label>
+                    <input type="text"
+                         class="form-control"
+                         placeholder="Usuario"
+                         [(ngModel)]="matrona.usuario"
+                         name="usuario"
+                         required
+                         minlength="4">
+                    <small *ngIf="f.submitted && f.controls.usuario.invalid" class="form-text text-danger">El usuario debe tener al menos 4 caracteres.</small>
+                </div>
+                <div class="form-group margen">
+                    <label>Contraseña</label>
+                    <input type="text"
+                         class="form-control"
+                         placeholder="Contraseña"
+                         [(ngModel)]="matrona.contrasenia"
+                         name="contrasenia"
+                         required
+                         minlength="8">
+                    <small *ngIf="f.submitted && f.controls.contrasenia.invalid" class="form-text text-danger">La contraseña debe tener al menos 8 caracteres.</small>
+                </div>
+           </div>
+           
+             <div class="form-group">
+                 <label>rol</label>
+                 <input type="text"
+                      class="form-control"
+                      placeholder="rol"
+                      [(ngModel)]="matrona.rol"
+                      name="rol"
+                      value=1
+                      required>
+             </div>
+             <div class="container d-flex">
+               <div class="form-group margen">
+                    <label>Correo</label>
+                    <input type="email"
+                           class="form-control"
+                           placeholder="Correo"
+                           [(ngModel)]="matrona.correo"
+                           name="correo"
+                           required
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <small class="form-text text-muted">El correo debe tener un formato válido</small>
+                  </div>
+                  <div class="form-group margen">
+                    <label>Teléfono</label>
+                    <input type="tel"
+                           class="form-control"
+                           placeholder="Teléfono"
+                           [(ngModel)]="matrona.telefono"
+                           name="telefono"
+                           required
+                           pattern="[0-8]{7,}">
+                    <small class="form-text text-muted">El teléfono debe tener al menos 8 dígitos</small>
+                  </div>
+             </div>
+             
+             <div class="container d-flex">
+               <div class="form-group margen">
+                    <label>horario</label>
+                    <input type="time"
+                         class="form-control"
+                         placeholder="horario de Matrona"
+                         [(ngModel)]="matrona.horario"
+                         name="horario"
+                         required>
+                </div>
+                <div class="form-group margen">
+                    <label>Estado</label>
+                      <select  class="form-control"
+                      placeholder="Estado"
+                      [(ngModel)]="matrona.estado"
+                      name="estado"
+                      required  aria-label="Default select example">
+                      <option selected value="Activo">Activo</option>
+                        <option  value="Inactivo">Inactivo</option>
+                      </select>
+                    </div>
+          
+             </div>
+            
+             <div class="form-group text-center">
+                 <button type="submit"
+                         class="btn btn-primary w-25">
+                   <i class="fa fa-save"></i>
+                   Guardar
+                 </button>
+               </div>
+          </form>
+     </div>
+     </div>
+      
+</div>

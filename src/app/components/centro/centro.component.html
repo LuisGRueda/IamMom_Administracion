@@ -1,0 +1,57 @@
+<div class="contenedor">
+  <h1>Listado de Centros</h1>
+<hr>
+
+<div class="row">
+  <div class="col text-right">
+    <button routerLink="/add-centro/nuevo" class="btn btn-primary">
+      <i class="fa fa-plus"></i>
+      Agregar
+    </button>
+  </div>
+</div>
+<table class="table mt-3 animated fadeIn faster animated fadeIn faster">
+    <thead class="thead-dark">
+     <tr>
+       <th scope="col">Id</th>
+       <th scope="col">Nombre</th>
+       <th scope="col">Direccion </th>
+       <th scope="col">Telefono</th>
+       <th scope="col">Tipo</th>
+       <th scope="col">Estado</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let item of centros| paginate: { itemsPerPage: 6, currentPage: pages }; let i = index ">
+       <td scope="row">{{item.id}}</td>
+       <td>{{item.nombre}}</td>
+       <td>{{item.direccion}}</td>
+       <td>{{item.telefono}}</td>
+       <td>{{item.tipo}}</td>
+       <td>{{item.estado}}</td>
+       <td>
+    
+         <button routerLink="/add-centro/{{item.id}}" class="btn btn-info mr-1" >
+                      <i class="fa fa-pen"></i>
+         </button>
+    
+         <button class="btn btn-danger" (click)="eliminar(item.id,i)">
+           <i class="fa fa-trash"></i>
+         </button>
+    
+    
+       </td>
+     </tr>
+     <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+    </tbody>
+    </table>
+    
+    <div *ngIf="centros.length === 0"
+      class="alert alert-warning text-center mt-3 animated fadeIn faster">
+     <h4 class="alert-heading">No hay registros</h4>
+     <p>
+       <i class="fa fa-exclamation fa-2x"></i>
+     </p>
+    </div>
+
+</div>

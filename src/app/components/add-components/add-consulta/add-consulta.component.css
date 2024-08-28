@@ -1,0 +1,41 @@
+
+.contenedor{
+    width: 100%;
+    padding-top: 50px;
+    padding-left: 18%;
+    padding-right: 18%;
+    height: auto;
+
+}
+
+  
+.margen{
+    width: 100%;
+    margin: auto;
+
+}
+.form-group{
+    padding: 1%;
+}
+.boton{
+    margin-top: 30px;
+}
+form{
+    padding: 4%;
+    border: 1px solid #6e6e6e96;
+    margin-bottom: 10%;
+}
+.boto{
+    padding: 4%;
+}
+.btn-outline-secondary {
+    font-size: 12px;
+    outline: none; 
+    box-shadow: none; 
+    width: 25px;
+    height: 25px;
+  }
+  button.btn-outline-secondary i {
+    margin: auto;
+  }
+  

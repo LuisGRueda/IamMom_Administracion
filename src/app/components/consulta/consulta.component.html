@@ -1,0 +1,103 @@
+<div class="container contenedor mt-5" id="pdf-content">
+    <div class="row">
+        <div class="col-2">
+            <!-- Imagen del hospital o clínica -->
+            <img src="assets/images/I-am-MOm.webp" alt="Hospital" class="img-fluid">
+        </div>
+        <div class="col-8 text-center">
+            <!-- Título de la consulta médica -->
+            <h1 class="mb-0">Consulta Médica</h1>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <h4 class="mb-4">Información del Paciente</h4>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" class="form-control" value="{{embarazada.nombre}}">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" class="form-control" value="{{embarazada.apellidos}}">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="fecha">Fecha de Consulta:</label>
+                        <input type="text" id="fecha" class="form-control" value="{{consulta.fechaConsulta}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12">
+                <h4 class="mb-4">Doctor</h4>
+                <div class="form-group">
+                    <input id="observaciones" class="form-control" value="{{doctor.nombre}}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <h4 class="mb-4">Síntomas Principales</h4>
+            <div class="form-group">
+                <textarea id="sintomas" class="form-control"  value="{{consulta.sintomaPrincipal}}"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <h4 class="mb-4">Diagnóstico</h4>
+            <div class="form-group">
+                <textarea id="diagnostico" class="form-control" value="{{consulta.diagnostico}}"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <h4 class="mb-4">Tratamiento</h4>
+            <div class="form-group">
+                <textarea id="tratamiento" class="form-control" value="{{consulta.tratamiento}}"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <h4 class="mb-4">Observaciones</h4>
+            <div class="form-group">
+                <textarea id="observaciones" class="form-control" value="{{consulta.observacion}}"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-4">
+            <div class="form-group">
+                <label for="firma-doctor">Firma del Doctor:</label>
+                <input type="text" id="firma-doctor" class="form-control">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label for="firma-paciente">Firma del Paciente:</label>
+                <input type="text" id="firma-paciente" class="form-control">
+            </div>
+        </div>
+    </div>
+   
+</div>
+<div class="contenedor">
+    <div class="centro">
+        <button class="btn btn-success" (click)="downloadPDF()">
+            <i class="fas fa-print"></i>
+            Imprimir
+          </button>
+          
+    </div>
+   
+</div>

@@ -1,0 +1,72 @@
+<div class="contenedor">
+    <h1>Listado de Doctores</h1>
+    <hr>
+    
+    <div class="row">
+      <div class="col text-right">
+        <button routerLink="/add-doctor/nuevo" class="btn btn-primary">
+          <i class="fa fa-plus"></i>
+          Agregar
+        </button>
+      </div>
+    </div>
+    <table class="table mt-3 animated fadeIn faster animated fadeIn faster">
+        <thead class="thead-dark">
+         <tr>
+           <th scope="col">Id</th>
+           <th scope="col">Nombre</th>
+           <th scope="col">Ci</th>
+           <th scope="col">Apellido </th>
+           <th scope="col">Email</th>
+           <th scope="col">Telefono</th>
+           <th scope="col">Direccion</th>
+           <th scope="col">Centro</th>
+           <th scope="col">Observacion</th>
+           <th scope="col">Estado</th>
+    
+          
+         </tr>
+        </thead>
+        <tbody>
+         <tr *ngFor="let item of doctor| paginate: { itemsPerPage: 6, currentPage: pages }; let i = index">
+           <td scope="row">{{item.id}}</td>
+           <td>{{item.nombre}}</td>
+           <td>{{item.ci}}</td>
+           <td>{{item.especialidad}}</td>
+           <td>{{item.email}}</td>
+           <td>{{item.telefono}}</td>
+           <td>{{item.direccion}}</td>
+           <td>{{item.centroId}}</td>
+           <td>{{item.observaciones}}</td>
+           <td>{{item.estado}}</td>
+           <td>
+        
+             <button class="btn btn-info mr-1"  routerLink="/add-doctor/{{item.id}}" >
+                          <i class="fa fa-pen"></i>
+             </button>
+        
+             <button class="btn btn-danger" (click)="eliminar(item.id,i)">
+               <i class="fa fa-trash"></i>
+             </button>
+  
+             <button class="btn btn-succes" (click)="verdoctor(item.ci)">
+              <i class="fa fa-trash"></i>
+            </button>
+        
+        
+           </td>
+         </tr>
+         <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+        </tbody>
+        </table>
+        <div *ngIf="doctor.length === 0"
+        class="alert alert-warning text-center mt-3 animated fadeIn faster">
+       <h4 class="alert-heading">No hay registros</h4>
+       <p>
+         <i class="fa fa-exclamation fa-2x"></i>
+       </p>
+      </div>
+      
+  </div>
+  
+  

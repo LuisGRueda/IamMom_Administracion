@@ -1,0 +1,34 @@
+<div class="contenedor matrona">
+    <div class="card" style="width: 35rem;">
+        <img style="width: 250px;"src="https://cdn.pixabay.com/photo/2014/03/25/16/54/user-297566_1280.png" class="card-img-top" >        <div class="card-body">
+          <h5 class="card-title">{{matrona.nombre}}  {{matrona.apellido}}</h5>
+          <p class="card-text">{{matrona.correo}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Ci: {{matrona.ci}}</li>
+          <li class="list-group-item">Tel: {{matrona.telefono}}</li>
+          <li class="list-group-item">Usuario: {{matrona.usuario}}</li>
+        </ul>
+        <div class="card-body">
+          <a routerLink="./add-matrona/{{matrona.id}}" class="card-link">Editar Perfil</a>
+          <button (click)="eliminar(matrona.id)" class="card-link">Eliminar Cuenta</button>
+        </div>
+      </div>
+</div>
+<div class="contenedor doctor">
+  <div class="card" style="width: 35rem;">
+      <img style="width: 250px;"src="https://cdn.pixabay.com/photo/2014/04/03/11/56/avatar-312603_1280.png" class="card-img-top" >        <div class="card-body">
+        <h5 class="card-title">{{doctor.nombre}} </h5>
+        <p class="card-text">{{doctor.email}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Ci: {{doctor.ci}}</li>
+        <li class="list-group-item">Tel: {{doctor.telefono}}</li>
+        <li class="list-group-item">Usuario: {{doctor.usuario}}</li>
+      </ul>
+      <div class="card-body">
+        <a routerLink="/add-doctor/{{doctor.id}}" class="card-link">Editar Perfil</a>
+        <button (click)="eliminar(doctor.id)" class="card-link">Eliminar Cuenta</button>
+      </div>
+    </div>
+</div>

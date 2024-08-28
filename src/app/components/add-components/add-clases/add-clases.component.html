@@ -1,0 +1,116 @@
+<div class="contenedor">
+  <a [routerLink]="['/clases']" class="btn btn-outline-danger btn-block">Regresar</a>
+  <div class="container">
+  </div>
+  <div class="row animated fadeIn faster">
+      <div class="col">
+        <form (ngSubmit)="guardar( f )"
+              #f="ngForm">
+   
+              <div class="form-group">
+                <label>ID</label>
+                <input type="text"
+                       class="form-control"
+                       placeholder="ID"
+                       name="id"
+                       [(ngModel)]="clase.id"
+                       disabled="disabled">
+                <small class="form-text text-muted">Este campo es autogenerado</small>
+              </div>
+
+              <div class="form-group">
+                <label>Nombre</label>
+                <input type="text"
+                       class="form-control"
+                       placeholder="Nombre"
+                       [(ngModel)]="clase.nombre"
+                       name="nombre"
+                       required
+                       minlength="3"
+                       maxlength="60">
+                <div *ngIf="f.submitted && f.controls.nombre.errors" class="text-danger">
+                  <div *ngIf="f.controls.nombre.errors.required">El nombre es requerido.</div>
+                  <div *ngIf="f.controls.nombre.errors.minlength">El nombre debe tener al menos 3 caracteres.</div>
+                  <div *ngIf="f.controls.nombre.errors.maxlength">El nombre debe tener máximo 60 caracteres.</div>
+                </div>
+              </div>
+
+  
+              <div class="form-group">
+                <label>Descripción</label>
+                <textarea class="form-control"
+                          placeholder="Descripción"
+                          [(ngModel)]="clase.descripcion"
+                          name="descripcion"
+                          required
+                          minlength="10"
+                          maxlength="200"></textarea>
+
+                <div *ngIf="f.submitted && f.controls.descripcion.errors" class="text-danger">
+                  <div *ngIf="f.controls.descripcion.errors.required">La descripción es requerida.</div>
+                  <div *ngIf="f.controls.descripcion.errors.minlength">La descripción debe tener al menos 10 caracteres.</div>
+                  <div *ngIf="f.controls.descripcion.errors.maxlength">La descripción debe tener máximo 200 caracteres.</div>
+                </div>
+              </div>
+  
+<div class="container d-flex"> 
+  <div class="form-group margen">
+    <label>Fecha y Hora</label>
+    <input type="datetime"
+         class="form-control"
+         placeholder="FechaHora"
+         [(ngModel)]="clase.fechahora"
+         name="fechahora"
+         required>
+</div>
+
+
+<div class="form-group margen">
+  <label>Matrona</label>
+  <select type="number" class="form-control"
+  placeholder="Tipo de Centro"
+  [(ngModel)]="clase.matronaid"
+  name="matronaid"
+  required  aria-label="Default select example">
+    <option  *ngFor="let item of matronas" value="{{item.id}}">{{item.nombre}} {{item.apellidos}}</option>
+  </select>
+</div>
+</div>
+
+         
+
+<div class="container d-flex"> 
+  <div class="form-group margen">
+    <label>Centro</label>
+    <select  class="form-control"
+    placeholder="Tipo de Centro"
+    [(ngModel)]="clase.centroid"
+    name="centroid"
+    required  aria-label="Default select example">
+      <option *ngFor="let item of centros" value="{{item.id}}">{{item.nombre}}</option>
+    </select>
+</div>
+
+
+<div class="form-group margen">
+  <label>Estado</label>
+    <select  class="form-control"
+    placeholder="Estado"
+    [(ngModel)]="clase.estado"
+    name="estado"
+    required  aria-label="Default select example">
+    <option selected value="Activo">Activo</option>
+      <option  value="Inactivo">Inactivo</option>
+    </select>
+  </div>
+</div>
+        
+
+        
+          <div class="form-group text-center boto">
+              <button type="submit"
+                      class="btn btn-primary w-25">
+                <i class="fa fa-save"></i>
+                Guardar
+              </button>
+            </div>

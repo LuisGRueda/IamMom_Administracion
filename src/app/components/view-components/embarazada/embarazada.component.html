@@ -1,0 +1,223 @@
+<div class="contenedor">
+    <div class="card" style="width: 35rem;">
+        <img style="width: 250px;"src="https://th.bing.com/th/id/R.4e089c60c3bced3467d123aa6e675715?rik=sOcYezg130jTmw&pid=ImgRaw&r=0" class="card-img-top" >        <div class="card-body">
+          <h5 class="card-title">{{embarazada.nombre}}  {{embarazada.apellido}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Ci: {{embarazada.ci}}</li>
+          <li class="list-group-item">Nro Seguro: {{embarazada.nroseguro}}</li>
+          <li class="list-group-item">Direccion: {{embarazada.direccion}}</li>
+          <li class="list-group-item">Edad: {{embarazada.edad}}</li>
+          <li class="list-group-item">Telefono: {{embarazada.telefono}}</li>
+          <li class="list-group-item">Registro: {{embarazada.registro}}</li>
+        </ul>
+        <div class="card-body">
+          <a routerLink="/add-centro/{{embarazada.id}}" class="card-link">Editar Perfil</a>
+          <!--button (click)="eliminar(embarazada.id)" class="card-link">Eliminar Cuenta</button-->
+        </div>
+      </div>
+</div>
+<div class="contenedor">
+  <h1>Hijo/s</h1>
+  <hr>
+  
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/add-hijo/nuevo/{{embarazada.ci}}" class="btn btn-primary">
+        <i class="fa fa-plus"></i>
+        Agregar
+      </button>
+    </div>
+  </div>
+  <table class="table mt-3 animated fadeIn faster animated fadeIn faster">
+      <thead class="thead-dark">
+       <tr>
+         <th scope="col">Id</th>
+         <th scope="col">Codigo Nacido</th>
+         <th scope="col">Nombre</th>
+         <th scope="col">Nombre Padre</th>
+         <th scope="col">Matrona</th>
+         <th scope="col">Fecha Nacido</th>
+         <th scope="col">Anomalias</th>
+         <th scope="col">Tipo de Sangre</th>
+         <th scope="col">Notas</th>
+         <th scope="col">Estado</th>
+  
+        
+       </tr>
+      </thead>
+      <tbody>
+       <tr *ngFor="let item of hijos| paginate: { itemsPerPage: 6, currentPage: pages }; let i = index">
+         <td scope="row">{{item.id}}</td>
+         <td>{{item.codigoNacido}}</td>
+         <td>{{item.nombre}}</td>
+         <td>{{item.nombre_padre}}</td>
+         <td>{{item.nombre_matrona}}</td>
+         <td>{{item.fechahora_nacido}}</td>
+         <td>{{item.anomalias}}</td>
+         <td>{{item.tipo_sangre}}</td>
+         <td>{{item.notas}}</td>
+         <td>{{item.estado}}</td>
+         <td>
+      
+           <button class="btn btn-info mr-1"  routerLink="/add-hijo/{{item.id}}" >
+                        <i class="fa fa-pen"></i>
+           </button>
+      
+           <button class="btn btn-danger" (click)="eliminar(item.id,i)">
+             <i class="fa fa-trash"></i>
+           </button>
+      
+      
+         </td>
+       </tr>
+       <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+      </tbody>
+      </table>
+      <div *ngIf="hijos.length === 0"
+      class="alert alert-warning text-center mt-3 animated fadeIn faster">
+     <h4 class="alert-heading">No hay registros</h4>
+     <p>
+       <i class="fa fa-exclamation fa-2x"></i>
+     </p>
+    </div>
+
+
+
+<div class="contenedor">
+  <h1>Control</h1>
+  <hr>
+  
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/control/nuevo/{{embarazada.ci}}" class="btn btn-primary">
+        <i class="fa fa-plus"></i>
+        Agregar
+      </button>
+    </div>
+  </div>
+  <table class="table mt-3 animated fadeIn faster animated fadeIn faster">
+      <thead class="thead-dark">
+       <tr>
+         <th scope="col">Id</th>
+         <th scope="col">Embarazada</th>
+         <th scope="col">Matrona</th>
+         <th scope="col">Fecha</th>
+         <th scope="col">Peso</th>
+         <th scope="col">Talla</th>
+         <th scope="col">Temperatura</th>
+         <th scope="col">Cardio</th>
+         <th scope="col">SemanaGestacion</th>
+         <th scope="col">Consulta</th>
+         <th scope="col">Anomalia</th>
+         <th scope="col">Registro</th>
+         <th scope="col">Estado</th>
+  
+        
+       </tr>
+      </thead>
+      <tbody>
+       <tr *ngFor="let item of control| paginate: { itemsPerPage: 6, currentPage: pages }; let i = index">
+         <td scope="row">{{item.id}}</td>
+         <td>{{item.embarazada}}</td>
+         <td>{{item.matrona}}</td>
+         <td>{{item.fecha}}</td>
+         <td>{{item.peso}}</td>
+         <td>{{item.talla}}</td>
+         <td>{{item.temperatura}}</td>
+         <td>{{item.cardio}}</td>
+         <td>{{item.semanagestacion}}</td>
+         <td>{{item.consulta}}</td>
+         <td>{{item.anomalias}}</td>
+         <td>{{item.registro}}</td>
+         <td>{{item.estado}}</td>
+         <td>
+      
+           <button class="btn btn-info mr-1"  routerLink="/add-control/{{item.id}}" >
+                        <i class="fa fa-pen"></i>
+           </button>
+      
+           <button class="btn btn-danger" (click)="eliminar(item.id,i)">
+             <i class="fa fa-trash"></i>
+           </button>
+      
+      
+         </td>
+       </tr>
+       <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+      </tbody>
+      </table>
+      <div *ngIf="control.length === 0"
+      class="alert alert-warning text-center mt-3 animated fadeIn faster">
+     <h4 class="alert-heading">No hay registros</h4>
+     <p>
+       <i class="fa fa-exclamation fa-2x"></i>
+     </p>
+    </div>
+    <button (click)="generarPDF()" class="btn btn-primary">Descargar Reporte de Controles
+    </button>
+
+  
+
+</div>
+<div class="contenedor">
+  <h1>Consultas</h1>
+  <hr>
+  
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/add-consulta/nuevo/{{embarazada.ci}}" class="btn btn-primary">
+        <i class="fa fa-plus"></i>
+        Agregar
+      </button>
+    </div>
+  </div>
+  <table class="table mt-3 animated fadeIn faster animated fadeIn faster">
+      <thead class="thead-dark">
+       <tr>
+         <th scope="col">Id</th>
+         <th scope="col">Ci Paciente</th>
+         <th scope="col">Nombre</th>
+         <th scope="col">Fecha Consulta</th>
+         <th scope="col">Sintomas</th>
+         <th scope="col">Diagnostico</th>
+         <th scope="col">Doctor</th>
+         <th scope="col">Estado</th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr *ngFor="let item of consulta| paginate: { itemsPerPage: 6, currentPage: pages }; let i = index">
+         <td scope="row">{{item.id}}</td>
+         <td>{{item.nombrePaciente}}</td>
+         <td>{{item.apellidoPaciente}}</td>
+         <td>{{item.fechaConsulta}}</td>
+         <td>{{item.sintomaPrincipal}}</td>
+         <td>{{item.diagnostico}}</td>
+         <td>{{item.doctor}}</td>
+         <td>{{item.estado}}</td>
+         <td>
+      
+           <button class="btn btn-info mr-1"  routerLink="/consulta/{{item.nombrePaciente}}/{{item.id}}" >
+            <i class="fas fa-print"></i>
+           </button>
+      
+           <button class="btn btn-danger" (click)="eliminar(item.id,i)">
+             <i class="fa fa-trash"></i>
+           </button>
+      
+      
+         </td>
+       </tr>
+       <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+      </tbody>
+      </table>
+      <div *ngIf="hijos.length === 0"
+      class="alert alert-warning text-center mt-3 animated fadeIn faster">
+     <h4 class="alert-heading">No hay registros</h4>
+     <p>
+       <i class="fa fa-exclamation fa-2x"></i>
+     </p>
+    </div>
+
+
+

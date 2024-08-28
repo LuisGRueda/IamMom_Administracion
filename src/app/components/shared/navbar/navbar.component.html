@@ -1,0 +1,55 @@
+
+<body>
+  <header id="head">
+    <div tabindex="-1" id="barra" class="barra">
+      <div id="navcontenido">
+        <div id="logo" routerLinkActive="active">
+          <img [routerLink]="['Home']" src="https://i.ibb.co/QJkkXVN/I-am-MOm.png" alt="">
+        </div>
+        <form class="d-flex buscar">
+          <input  class="form-control mds" type="search" placeholder="Search" aria-label="Search" (keyup.enter)="buscar(buscarTexto.value)" #buscarTexto>
+          <button (click)="buscar(buscarTexto.value)" class="btn lineab mds" type="button">
+            </button>
+        </form>
+        <button class="navbar-toggler icono" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="menu__submenu"id="paginas">
+          <li class="menu__sub-item" routerLinkActive="active" class="botonpagina">
+            <a [routerLink]="['Home']">INICIO</a>
+          </li>
+          <li class="nav-item dropdown droppagina"  >
+            <a>
+              ADMINISTRACION
+            </a>
+            <div class="dropdown-content">
+              <a class="botonPag" [routerLink]="['centro']">CENTROS</a>
+              <a class="botonPag" [routerLink]="['clases']">CLASES</a>
+              <a class="botonPag" [routerLink]="['comunicados']">COMUNICADOS</a>
+            </div>
+        </li>
+          <li class="nav-item dropdown droppagina" >
+            <a>
+              PERSONAL  .  
+            </a>
+            <div class="dropdown-content">
+              <a class="botonPag" [routerLink]="['embarazadas']">EMBARAZADAS</a>
+              <a class="botonPag" [routerLink]="['matrona']">MATRONAS</a>
+              <a class="botonPag" [routerLink]="['doctor']">DOCTORES</a>
+            </div>
+        </li>
+          <li class="nav-item dropdown droppagina" >
+            <a>
+              {{loguser}}&nbsp;<i class="fas fa-solid fa-user"></i
+                >
+            </a>
+            <div class="dropdown-content">
+              <a class="botonPag" (click)="VerPerfil()">Perfil</a>
+              <a class="botonPag" (click)="logout()">Cerrar Sesion</a>
+            </div>
+        </li>
+        </ul>       
+      </div>
+    </div>  
+ </header>
+ <div>

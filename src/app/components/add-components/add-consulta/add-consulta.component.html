@@ -1,0 +1,123 @@
+<div class="contenedor">
+    <a [routerLink]="['/consulta']" class="btn btn-outline-danger btn-block">Regresar</a>
+  
+    <div class="row ">
+        <div class="col">
+     
+          <form (ngSubmit)="guardar( f )"
+                #f="ngForm">
+            <div class="container d-flex">
+              <div class="form-group margen">
+                <label>ID</label>
+                <input type="text"
+                       class="form-control"
+                       placeholder="ID"
+                       name="id"
+                       [(ngModel)]="consulta.id"
+                       disabled="disabled">
+                <small class="form-text text-muted">Este campo es autogenerado</small>
+              </div>
+       
+              <div class="form-group margen">
+                <label>Ci Paciente</label>
+                <input type="text"
+                       class="form-control"
+                       name="nombrePaciente"
+                       [(ngModel)]="consulta.nombrePaciente"
+                      >
+                      <small class="form-text text-muted">Este campo es autogenerado</small>
+  
+            </div>
+            </div> 
+            <div class="container d-flex">
+              <div class="form-group margen">
+                <label>Nombre Paciente</label>
+                <input type="text"
+                       class="form-control"
+                       name="apellidosPaciente"
+                       [(ngModel)]="consulta.apellidosPaciente"
+                     >
+    
+            </div>
+            <div class="form-group margen">
+                <label>Fecha Consulta</label>
+                <input type="datetime-local"
+                     class="form-control"
+                     placeholder="FechaHora"
+                     [(ngModel)]="consulta.fechaConsulta"
+                     name="fechaConsulta"
+                     required>
+            </div>
+            </div>
+          
+            <div class="form-group">
+              <label>sintoma Principal</label>
+              <textarea style="min-height: 50px;" type="text"
+                     class="form-control"
+                     name="sintomaPrincipal"
+                     [(ngModel)]="consulta.sintomaPrincipal"
+                     required></textarea>
+              <small class="form-text text-muted">El sintoma Principal debe tener al menos 10 caracteres</small>
+
+          </div>
+          <div class="form-group">
+            <label>Diagnostico</label>
+            <textarea type="text"
+                   class="form-control"
+                   name="diagnostico"
+                   [(ngModel)]="consulta.diagnostico"
+                   required></textarea>
+
+        </div>
+          <div class="form-group">
+            <label>Tratamiento</label>
+            <textarea type="text"
+                   class="form-control"
+                   name="tratamiento"
+                   [(ngModel)]="consulta.tratamiento"
+                   required></textarea>
+
+        </div>
+          <div class="form-group">
+            <label>Obserbaciones</label>
+            <textarea type="text"
+                   class="form-control"
+                   name="observaciones"
+                   [(ngModel)]="consulta.observaciones"
+                   required></textarea>
+        </div>
+        <div class="container d-flex">
+          <div class="form-group margen">
+            <label>Doctor</label>
+            <input type="number"
+                   class="form-control"
+                   name="doctor"
+                   [(ngModel)]="consulta.doctor"
+                  >
+          </div>
+            <div class="form-group margen">
+              <label>Estado</label>
+                <select  class="form-control"
+                placeholder="Estado"
+                [(ngModel)]="consulta.estado"
+                name="estado"
+                required  aria-label="Default select example">
+                <option selected value="Activo">Activo</option>
+                  <option  value="Inactivo">Inactivo</option>
+                </select>
+            </div>
+        </div>
+        
+  
+    
+            <div class="form-group text-center boton">
+                <button type="submit"
+                        class="btn btn-primary w-25">
+                  <i class="fa fa-save"></i>
+                  Guardar
+                </button>
+              </div>
+            </form>
+            </div>
+          </div>
+  </div>

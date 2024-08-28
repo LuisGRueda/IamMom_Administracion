@@ -1,0 +1,103 @@
+<div class="contenedor">
+  <a [routerLink]="['/centro']" class="btn btn-outline-danger btn-block">Regresar</a>
+
+  <div class="row ">
+      <div class="col">
+   
+        <form (ngSubmit)="guardar( f )"
+              #f="ngForm">
+   
+          <div class="form-group">
+            <label>ID</label>
+            <input type="text"
+                   class="form-control"
+                   placeholder="ID"
+                   name="id"
+                   [(ngModel)]="centro.id"
+                   disabled="disabled">
+            <small class="form-text text-muted">Este campo es autogenerado</small>
+          </div>
+   
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text"
+                   class="form-control"
+                   name="nombre"
+                   [(ngModel)]="centro.nombre"
+                   pattern=".{8,}"
+                   required>
+            <small class="form-text text-muted">El nombre debe tener al menos 8 caracteres</small>
+            <div *ngIf="f.submitted && f.controls['nombre'].errors" class="text-danger">
+                <div *ngIf="f.controls['nombre'].errors.required">El nombre es requerido.</div>
+                <div *ngIf="f.controls['nombre'].errors.pattern">El nombre debe tener al menos 8 caracteres.</div>
+            </div>
+        </div>
+          <div class="form-group">
+            <label>Dirección</label>
+            <input type="text"
+                   class="form-control"
+                   name="direccion"
+                   [(ngModel)]="centro.direccion"
+                   pattern=".{10,}"
+                   required>
+            <small class="form-text text-muted">La dirección debe tener al menos 10 caracteres</small>
+            <div *ngIf="f.submitted && f.controls['direccion'].errors" class="text-danger">
+                <div *ngIf="f.controls['direccion'].errors.required">La dirección es requerida.</div>
+                <div *ngIf="f.controls['direccion'].errors.pattern">La dirección debe tener al menos 10 caracteres.</div>
+            </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="text"
+                 class="form-control"
+                 name="telefono"
+                 [(ngModel)]="centro.telefono"
+                 pattern="\d{7,}"
+                 required>
+          <small class="form-text text-muted">El teléfono debe tener al menos 7 dígitos</small>
+          <div *ngIf="f.submitted && f.controls['telefono'].errors" class="text-danger">
+              <div *ngIf="f.controls['telefono'].errors.required">El teléfono es requerido.</div>
+              <div *ngIf="f.controls['telefono'].errors.pattern">El teléfono debe tener al menos 7 dígitos.</div>
+          </div>
+      </div>
+          <div class="container d-flex ">
+            <div class="form-group margen">
+              <label>Tipo</label>
+              <select  class="form-control"
+              placeholder="Tipo de Centro"
+              [(ngModel)]="centro.tipo"
+              name="tipo"
+              required  aria-label="Default select example">
+                <option value="CS">Centro de salud</option>
+                <option value="CC">Centro de Capacitacion</option>
+                <option value="OC">Otros tipo centro</option>
+              </select>
+              
+          </div>
+    
+          <div class="form-group margen">
+            <label>Estado</label>
+              <select  class="form-control"
+              placeholder="Estado"
+              [(ngModel)]="centro.estado"
+              name="estado"
+              required  aria-label="Default select example">
+              <option selected value="Activo">Activo</option>
+                <option  value="Inactivo">Inactivo</option>
+              </select>
+            </div>
+          </div>
+
+  
+          <div class="form-group text-center boton">
+              <button type="submit"
+                      class="btn btn-primary w-25">
+                <i class="fa fa-save"></i>
+                Guardar
+              </button>
+            </div>
+          </form>
+          </div>
+        </div>
+</div>

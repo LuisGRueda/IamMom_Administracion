@@ -1,0 +1,168 @@
+<div class="contenedor">
+  <a [routerLink]="['/embarazada']" class="btn btn-outline-danger btn-block">Regresar</a>
+  <div class="container">
+    
+  </div>
+  <div class="row animated fadeIn faster">
+      <div class="col">
+   
+        <form (ngSubmit)="guardar( f )"
+              #f="ngForm">
+   
+              <div class="form-group">
+                <label>ID</label>
+                <input type="text"
+                       class="form-control"
+                       placeholder="ID"
+                       name="id"
+                       [(ngModel)]="control.id"
+                       disabled="disabled">
+                <small class="form-text text-muted">Este campo es autogenerado</small>
+              </div>
+   
+          <div class="form-group">
+              <label>CI de Embarazada</label>
+              <input type="text"
+                   class="form-control"
+                   [(ngModel)]="control.embarazada"
+                   name="embarazada"
+                   required>
+          
+          </div>
+          <div class="container d-flex">
+            <div class="form-group margen">
+              <label>Matrona</label>
+              <select  class="form-control"
+              placeholder="Matrona a Cargo"
+              [(ngModel)]="control.matrona"
+              name="matrona"
+              required  aria-label="Default select example">
+                <option *ngFor="let item of matronas" value="{{item.id}}">{{item.nombre}} {{item.apellidos}}</option>
+              </select>
+           
+        </div>
+          <div class="form-group margen">
+              <label>Fecha</label>
+              <input type="date"
+                   class="form-control"
+                   placeholder="Fecha valida"
+                   [(ngModel)]="control.fecha"
+                   name="fecha"
+                   required>
+                  
+          </div>
+          </div>
+          <div class="container d-flex">
+            <div class="form-group margen">
+              <label>Peso</label>
+              <input type="number"
+                   class="form-control"
+                   placeholder="gramos"
+                   [(ngModel)]="control.peso"
+                   name="peso"
+                   required>
+                
+          </div>
+          <div class="form-group margen">
+              <label>Talla</label>
+              <input type="number"
+                   class="form-control"
+                   placeholder="cm"
+                   [(ngModel)]="control.talla"
+                   name="talla"
+                   required>
+                   <small class="form-text text-muted"></small>
+          </div>
+          </div>
+          <div class="container d-flex">
+            <div class="form-group margen">
+              <label>Temperatura</label>
+              <input type="number"
+                   class="form-control"
+                   placeholder="°C"
+                   [(ngModel)]="control.temperatura"
+                   name="temperatura"
+                   required>
+          </div>
+
+          <div class="form-group margen">
+              <label>Ritmo Cardiaco</label>
+              <input type="number"
+                   class="form-control"
+                   placeholder="pxm"
+                   [(ngModel)]="control.cardio"
+                   name="cardio"
+                   required>
+          </div>
+          </div>
+          
+
+          <div class="form-group">
+              <label>Semana gestacion</label>
+              <input type="number"
+                   class="form-control"
+                   placeholder="dias"
+                   [(ngModel)]="control.semanaGestacion"
+                   name="semanaGestacion"
+                   required>
+          </div>
+          <div class="form-group">
+              <label>Consulta</label>
+              <textarea type="text"
+                   class="form-control"
+                   placeholder="Detalle de la Consulta"
+                   [(ngModel)]="control.consulta"
+                   name="consulta"
+                   required></textarea>
+          </div>
+          <div class="form-group">
+              <label>Anomalias</label>
+              <textarea type="text"
+                   class="form-control"
+                   placeholder="Anomalias encontradas en este control, separe con comas: Anomalia 1, Anomalia 2, Etc"
+                   [(ngModel)]="control.anomalias"
+                   name="anomalias"
+                   required></textarea>
+          </div>
+          <div class="container d-flex">
+            <div class="form-group margen">
+              <label>Registro</label>
+              <select type="number" class="form-control"
+              placeholder="registro a cargo de"
+              [(ngModel)]="control.registro"
+              name="registro"
+              required  aria-label="Default select example">
+                <option  *ngFor="let item of matronas" value="{{item.id}}">{{item.nombre}} {{item.apellidos}}</option>
+              </select>
+          </div>
+    
+          <div class="form-group margen">
+            <label>Estado</label>
+              <select  class="form-control"
+              placeholder="Estado"
+              [(ngModel)]="control.estado"
+              name="estado"
+              required  aria-label="Default select example">
+              <option selected value="Activo">Activo</option>
+                <option  value="Inactivo">Inactivo</option>
+              </select>
+            </div>
+          </div>
+          
+  
+          <div class="form-group text-center">
+              <button type="submit"
+                      class="btn btn-primary w-25">
+                <i class="fa fa-save"></i>
+                Guardar
+              </button>
+              <!-- </button>
+              <button (click)="generarPDF()" class="btn btn-primary">Descargar Reporte de Controles
+              </button>ACTIVAR CUANDO CONTROLES TENGA REPORTES-->
+            </div>
+            
+           
+
+
+          
+  

@@ -1,0 +1,74 @@
+<div class="contenedor">
+  <h1>Listado de Embarazadas</h1>
+  <hr>
+  
+  <div class="row">
+    <div class="col text-right">
+      <button routerLink="/add-embarazada/nuevo" class="btn btn-primary">
+        <i class="fa fa-plus"></i>
+        Agregar
+      </button>
+    </div>
+  </div>
+  <table class="table mt-3 animated fadeIn faster animated fadeIn faster">
+      <thead class="thead-dark">
+       <tr>
+         <th scope="col">Id</th>
+         <th scope="col">Nombre</th>
+         <th scope="col">Apellido </th>
+         <th scope="col">Ci</th>
+         <th scope="col">Nro Seguro</th>
+         <th scope="col">Direccion</th>
+         <th scope="col">Edad</th>
+         <th scope="col">Telefono</th>
+         <th scope="col">Registro</th>
+         <th scope="col">MatronaId</th>
+         <th scope="col">Estado</th>
+  
+        
+       </tr>
+      </thead>
+      <tbody>
+       <tr *ngFor="let item of embarazada| paginate: { itemsPerPage: 6, currentPage: pages }; let i = index">
+         <td scope="row">{{item.id}}</td>
+         <td>{{item.nombre}}</td>
+         <td>{{item.apellidos}}</td>
+         <td>{{item.ci}}</td>
+         <td>{{item.nroseguro}}</td>
+         <td>{{item.direccion}}</td>
+         <td>{{item.edad}}</td>
+         <td>{{item.telefono}}</td>
+         <td>{{item.registro}}</td>
+         <td>{{item.matronaId}}</td>
+         <td>{{item.estado}}</td>
+         <td>
+      
+           <button class="btn btn-info mr-1"  routerLink="/add-embarazada/{{item.id}}" >
+                        <i class="fa fa-pen"></i>
+           </button>
+      
+           <button class="btn btn-danger" (click)="eliminar(item.id,i)">
+            <i class="fa fa-trash"></i>
+           </button>
+
+           <button class="btn btn-succes" (click)="verEmbarazada(item.ci,item.nombre)">
+            <i class="fa fa-eye"></i>
+          </button>
+      
+      
+         </td>
+       </tr>
+       <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+      </tbody>
+      </table>
+      <div *ngIf="embarazada.length === 0"
+      class="alert alert-warning text-center mt-3 animated fadeIn faster">
+     <h4 class="alert-heading">No hay registros</h4>
+     <p>
+       <i class="fa fa-exclamation fa-2x"></i>
+     </p>
+    </div>
+   <button (click)="generarPDF()" class="btn btn-primary">Descargar Reporte de Embarazadas
+    </button>
+</div>
+

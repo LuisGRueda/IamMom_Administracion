@@ -1,0 +1,152 @@
+<div class="contenedor">
+  <a [routerLink]="['/embarazadas']" class="btn btn-outline-danger btn-block">Regresar</a>
+  <div class="container">
+    
+  </div>
+  <div class="row animated fadeIn faster">
+      <div class="col">
+   
+        <form (ngSubmit)="guardar( f )"
+              #f="ngForm">
+   
+          <div class="form-group">
+            <label>ID</label>
+            <input type="text"
+                   class="form-control"
+                   placeholder="ID"
+                   [(ngModel)]="embarazada.id"
+                   name="id"
+                   disabled="disabled">
+            <small class="form-text text-muted">Este campo es autogenerado</small>
+          </div>
+   
+          <div class="form-group">
+              <label>Nombre</label>
+              <input type="text"
+                   class="form-control"
+                   placeholder="Nombre"
+                   [(ngModel)]="embarazada.nombre"
+                   name="nombre"
+                   required 
+                   minlength="3">
+                 <small *ngIf="f.submitted && f.controls.nombre.invalid" class="form-text text-danger">El nombre debe tener al menos 3 caracteres.</small>
+
+          </div>
+          <div class="form-group">
+              <label>Apelido</label>
+              <input type="text"
+                   class="form-control"
+                   [(ngModel)]="embarazada.apellidos"
+                   name="apellidos"
+                   required
+                   minlength="4">
+                   <small *ngIf="f.submitted && f.controls.apellidos.invalid" class="form-text text-danger">El apellido debe tener al menos 4 caracteres.</small>
+
+          </div>
+          <div class="form-group">
+              <label>Ci</label>
+              <input type="number"
+                   class="form-control"
+                   placeholder="ci"
+                   [(ngModel)]="embarazada.ci"
+                   name="ci"
+                   required
+                   minlength="6">
+                   <small *ngIf="f.submitted && f.controls.contrasenia.invalid" class="form-text text-danger">La Ci debe tener al menos 6 numeros.</small>
+          </div>
+          <div class="form-group">
+              <label>Numero de Seguro</label>
+              <input type="number"
+                   class="form-control"
+                   placeholder="Seguro"
+                   [(ngModel)]="embarazada.nroseguro"
+                   name="nroseguro"
+                   required>
+          </div>
+          <div class="form-group">
+              <label>Direccion</label>
+              <input type="text"
+                   class="form-control"
+                   placeholder="direccion"
+                   [(ngModel)]="embarazada.direccion"
+                   name="direccion"
+                   required
+                   minlength="6">
+                   <small *ngIf="f.submitted && f.controls.direccion.invalid" class="form-text text-danger">La direccion debe tener al menos 15 dígitos.</small>
+
+          </div>
+          <div class="form-group">
+              <label>Edad</label>
+              <input type="number"
+                   class="form-control"
+                   placeholder="Edad"
+                   [(ngModel)]="embarazada.edad"
+                   name="edad"
+                   required>
+          </div>
+          <div class="container d-flex">
+            <div class="form-group margen">
+              <label>Telefono</label>
+              <input type="number"
+                   class="form-control"
+                   placeholder="Telefono"
+                   [(ngModel)]="embarazada.telefono"
+                   name="telefono"
+                   required
+                   minlength="8">
+                   <small *ngIf="f.submitted && f.controls.telefono.invalid" class="form-text text-danger">El telefono debe tener 8 dígitos.</small>
+
+          </div>
+  
+          <div class="form-group margen">
+            <label>Registro</label>
+            <select  class="form-control"
+            placeholder="Tipo de Centro"
+            [(ngModel)]="embarazada.registro"
+            name="registro"
+            required  aria-label="Default select example">
+              <option *ngFor="let item of matronas" value="{{item.id}}">{{item.nombre}} {{item.apellidos}}</option>
+            </select>
+        </div>
+          </div>
+         
+        <div class="container d-flex">
+          <div class="form-group margen">
+            <label>Matrona</label>
+            <select class="form-control"
+                    placeholder="Tipo de Centro"
+                    [(ngModel)]="embarazada.matronaId"
+                    name="matronaId"
+                    required
+                    aria-label="Default select example">
+                <option *ngFor="let item of matronas" [ngValue]="item.id">{{item.nombre}} {{item.apellidos}}</option>
+            </select>
+        </div>
+        
+         <div class="form-group margen">
+          <label>Estado</label>
+            <select  class="form-control"
+            placeholder="Estado"
+            [(ngModel)]="embarazada.estado"
+            name="estado"
+            required  aria-label="Default select example">
+            <option selected value="Activo">Activo</option>
+              <option  value="Inactivo">Inactivo</option>
+            </select>
+          </div>
+        </div>
+       
+          <div class="form-group text-center">
+              <button type="submit"
+                      class="btn btn-primary w-25">
+                <i class="fa fa-save"></i>
+                Guardar
+              </button>
+            </div>
+       </form>
+  </div>
+  </div>
+  
+  
+  
+</div>

@@ -1,0 +1,107 @@
+<div id="presentacion">
+    <div class="img-slider">
+        <div class="slide active">
+            <img src="https://cdn.pixabay.com/photo/2021/04/14/12/45/pregnant-6178270_960_720.jpg" alt="">
+            <div class="info">
+                <h2></h2>
+                <p>Disfruta la experiencia de ser mamá </p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://cdn.pixabay.com/photo/2016/11/18/16/27/alphabet-blocks-1835658_960_720.jpg" alt="">
+            <div class="info">
+                <h2>Centro de la Vida</h2>
+                <p>Cuidar de tu bebé sera mas seguro junto a nosotros</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://albasoler.es/wp-content/uploads/2020/08/albasoler_119.jpg" alt="">
+            <div class="info">
+                <h2>Centro de la Vida</h2>
+                <p>Tu bebe y tu nunca estuvieron tan seguros</p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="banner" routerLinkActive="active">
+    <h3>Comienza a gestionarlas clases ahora</h3>
+    <button  [routerLink]="['/registro-clases']" class="btn"> Registrar</button>
+</div>
+<hr>
+<div class="contenedor comunicados">
+    <h2 class="titulos ttlC">Comunicados</h2>
+    <div class="container-fluid d-flex">
+        <div *ngFor="let item of comunicados; let i=index" class="container-fluid d-flex">
+            <div *ngIf="i<4"  class="card" style="width: 18rem;">
+                <img [src]="item.imagen" class="card-img-top" style="height: 160px; object-fit:cover;">
+                <div class="card-body">
+                    <p class="card-text">{{item.categoria}}</p>
+                  <h5 class="card-title">{{item.titulo}}</h5>
+                  <p class="card-text">{{item.contenido}}</p>
+                  <h6>{{item.fecha}}</h6>
+                  <a href="#" class="btn Colores">Editar</a>
+                </div>
+          </div>
+        </div>
+       
+    </div>
+    
+</div>
+
+<div class="contenedor" id="tarjetas"  routerLinkActive="active">
+    <div [routerLink]="['/centro']" class="hovergalery espe">
+        <img src="https://albasoler.es/wp-content/uploads/2020/08/albasoler_148.jpg" alt="">
+        <div class="tarjeta ">
+            <h3 >Centros</h3>
+        </div>      
+    </div>
+    <div [routerLink]="['/matrona']" class="hovergalery">
+        <img src="https://m.media-amazon.com/images/S/stores-image-uploads-eu-prod/2/AmazonStores/A1RKKUPIHCS9HS/e9247012df42899f454e57b182a388f3.w600.h399.jpg" alt="">
+        <div class="tarjeta ">
+            <h3>Matronas</h3>
+        </div>
+    </div>
+    <div [routerLink]="['/clases']" class="hovergalery espe">
+        <img src="https://media.istockphoto.com/photos/happy-mother-holding-her-baby-at-home-picture-id1304231206?k=20&m=1304231206&s=612x612&w=0&h=zwB77-QZzEs-7sKo0J65UqmaZwICChdcXtbd2HQvzUM=" alt="">
+        <div class="tarjeta ">
+            <h3>Clases</h3>
+        <!-- La redireccion a la agregacion, solo recepcionar los nombres de las matronas-->
+        </div>  
+    </div>
+    <div [routerLink]="['/embarazadas']" class="hovergalery">
+        <img src="https://st.depositphotos.com/1397247/2011/i/450/depositphotos_20114099-stock-photo-babys-feet.jpg" alt="">
+        <div class="tarjeta ">
+            <h3>Embrazadas</h3>
+        </div> 
+    </div>   
+</div>
+<div class="contenedor" id="descripcion">
+    <div id="texto">
+      <h2 class="titulos">EL CAMINO A UN BUEN CUIDADO</h2>
+      <p>Bebe Sanito
+        La clave para proteger la salud de su bebé está en hacerse
+        exámenes médicos prenatales regularmente. Si cree que puede
+        estar embarazada, concierte su primera cita prenatal con el
+        profesional de la salud.
+        A lo largo del embarazo, el profesional de la salud que supervise
+        su embarazo la pesará y le tomará la tensión arterial al tiempo 
+        que evalúa el crecimiento y el desarrollo del bebé (palpándole el 
+        abdomen, midiéndole el vientre y escuchando el latido cardíaco del 
+        feto a partir del segundo trimestre de embarazo). A lo largo del 
+        embarazo, también le practicarán varias pruebas de diagnóstico 
+        prenatal, incluyendo análisis de sangre y de orina, exploraciones 
+        del cuello uterino y probablemente por lo menos una ecografía.
+        Ahora que usted está comiendo para dos (¡o más!), no es el mejor 
+        momento para escatimar calorías o ponerse a dieta. De hecho, ocurre 
+        justamente lo contrario necesita aproximadamente 300 calorías diarias 
+        más, sobre todo cuando el embarazo esté bastante avanzado y el bebé 
+        crezca más deprisa.
+        </p>
+    </div>
+    <div id="imagentexto">
+        <img src="https://previews.123rf.com/images/evgenyatamanenko/evgenyatamanenko1311/evgenyatamanenko131100038/23662593-familia-feliz-una-joven-madre-jugando-con-su-beb%C3%A9-en-la-cama.jpg" alt="">
+    </div>
+</div>
+
+
